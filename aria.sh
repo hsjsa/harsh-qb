@@ -2,6 +2,7 @@ TRACKERS=$(curl -Ns https://raw.githubusercontent.com/ngosang/trackerslist/maste
 
 aria2c \
 --allow-overwrite=true \
+--max-concurrent-downloads=6 \
 --bt-enable-lpd=true \
 --bt-max-peers=0 \
 --bt-tracker="[$TRACKERS]" \
