@@ -1,4 +1,4 @@
-FROM harshpreets63/cutie:sweet
+FROM ghcr.io/anime-republic/mirrorhunter:latest
 
 WORKDIR /usr/src/app
 COPY . .
