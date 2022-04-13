@@ -116,7 +116,7 @@ if RECURSIVE_SEARCH:
 aria2 = aria2p.API(
     aria2p.Client(
         host="http://localhost",
-        port=6800,
+        port=1024,
         secret="",
     )
 )
@@ -351,25 +351,6 @@ except KeyError:
     SHORTENER_API = None
 
 IGNORE_PENDING_REQUESTS = False
-try:
-    if getConfig("IGNORE_PENDING_REQUESTS").lower() == "true":
-        IGNORE_PENDING_REQUESTS = True
-except KeyError:
-    pass
-
-try:
-    TG_SPLIT_SIZE = getConfig('TG_SPLIT_SIZE')
-    if len(TG_SPLIT_SIZE) == 0 or int(TG_SPLIT_SIZE) > 2097152000:
-        raise KeyError
-    else:
-        TG_SPLIT_SIZE = int(TG_SPLIT_SIZE)
-except KeyError:
-    TG_SPLIT_SIZE = 2097152000
-try:
-    AS_DOCUMENT = getConfig('AS_DOCUMENT')
-    AS_DOCUMENT = AS_DOCUMENT.lower() == 'true'
-except KeyError:
-    AS_DOCUMENT = False
 
 #VIEW_LINK
 try:
@@ -450,13 +431,6 @@ get_client().application.set_preferences({"add_trackers":f"{trackerslist}"})
 """
 
 try:
-    BASE_URL = getConfig('BASE_URL_OF_BOT')
-    if len(BASE_URL) == 0:
-        raise KeyError
-except KeyError:
-    logging.warning('BASE_URL_OF_BOT not provided!')
-    BASE_URL = None
-try:
     TORRENT_DIRECT_LIMIT = getConfig('TORRENT_DIRECT_LIMIT')
     if len(TORRENT_DIRECT_LIMIT) == 0:
         raise KeyError
@@ -464,11 +438,6 @@ try:
         TORRENT_DIRECT_LIMIT = float(TORRENT_DIRECT_LIMIT)
 except KeyError:
     TORRENT_DIRECT_LIMIT = None
-try:
-    WEB_PINCODE = getConfig('WEB_PINCODE')
-    WEB_PINCODE = WEB_PINCODE.lower() == 'true'
-except KeyError:
-    WEB_PINCODE = False 
 try:
     QB_SEED = getConfig('QB_SEED')
     QB_SEED = QB_SEED.lower() == 'true'
