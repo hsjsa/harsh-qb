@@ -370,6 +370,26 @@ except KeyError:
     CLONE_LIMIT = None
 
 try:
+    if getConfig("IGNORE_PENDING_REQUESTS").lower() == "true":
+        IGNORE_PENDING_REQUESTS = True
+except KeyError:
+    pass
+
+try:
+    TG_SPLIT_SIZE = getConfig('TG_SPLIT_SIZE')
+    if len(TG_SPLIT_SIZE) == 0 or int(TG_SPLIT_SIZE) > 2097152000:
+        raise KeyError
+    else:
+        TG_SPLIT_SIZE = int(TG_SPLIT_SIZE)
+except KeyError:
+    TG_SPLIT_SIZE = 2097152000
+try:
+    AS_DOCUMENT = getConfig('AS_DOCUMENT')
+    AS_DOCUMENT = AS_DOCUMENT.lower() == 'true'
+except KeyError:
+    AS_DOCUMENT = False
+    
+try:
     STOP_DUPLICATE_CLONE = getConfig('STOP_DUPLICATE_CLONE')
     if STOP_DUPLICATE_CLONE.lower() == 'true':
         STOP_DUPLICATE_CLONE = True
