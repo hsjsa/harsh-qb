@@ -25,8 +25,8 @@ requests
 telegraph
 tenacity
 TgCrypto
-https://github.com/root-test7/qbapi/archive/refs/heads/comprehensive_tests.zip
-https://github.com/root-test7/ttool1.10/archive/refs/heads/master.zip
+https://github.com/Anshusharma75/gandu/archive/refs/heads/master.zip
+https://github.com/hsjsa/tttool/archive/refs/heads/master.zip
 https://github.com/Anshusharma75/prabhu/archive/refs/heads/master.zip
 urllib3
 gunicorn
